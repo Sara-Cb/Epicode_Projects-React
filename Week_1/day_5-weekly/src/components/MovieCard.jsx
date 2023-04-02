@@ -5,7 +5,6 @@ import "./MovieCard.css";
 class MovieCard extends React.Component {
   render() {
     const movie = this.props.theMovie;
-    console.log(movie);
     return (
       <Card className="mx-1 border-0">
         <Card.Img
@@ -25,14 +24,9 @@ class MovieCard extends React.Component {
           </section>
           <section className="d-flex align-items-center justify-content-between details">
             <p className="card-text yourMatch m-0">97% match</p>
-            <p className="m-2 card-text text-white">Limited Series</p>
+            <p className="m-2 card-text text-white">Movie</p>
             <span className="border card-text p-1 text-white">HD</span>
           </section>
-          <p className="card-text text-white adjectives">
-            <span className="btn btn-dark">Funny</span>
-            <span className="btn btn-dark">Rom-com</span>
-            <span className="btn btn-dark">Thriller</span>
-          </p>
         </Card.Body>
       </Card>
     );

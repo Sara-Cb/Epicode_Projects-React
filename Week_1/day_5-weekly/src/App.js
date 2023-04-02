@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import NavBar from "./components/Navbar";
 import MoviePage from "./components/MoviePage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,9 +11,12 @@ function App() {
       <header>
         <NavBar />
       </header>
-      <div>
+      <div id="content">
         <MoviePage />
       </div>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

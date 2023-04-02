@@ -15,7 +15,13 @@ class NavBar extends Component {
 
   render() {
     return (
-      <Navbar variant="dark" expand="md" className="py-2 px-4 sticky-top">
+      <Navbar
+        bg="black"
+        variant="dark"
+        expand="md"
+        className="py-2 px-4"
+        fixed="top"
+      >
         <Navbar.Brand href="#">
           <img
             alt=""

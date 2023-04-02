@@ -22,8 +22,8 @@ class GenreSelector extends React.Component {
           <h1 className="me-4">{this.props.page}</h1>
           <Form className="d-flex align-items-center">
             <Form.Select
-              name="genere"
-              id="genere"
+              name="genre"
+              id="genre"
               className="bg-black text-light border-0"
               onChange={this.handleSelectChange}
               value={this.state.selectedOption}

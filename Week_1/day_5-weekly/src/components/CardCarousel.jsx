@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -7,6 +7,23 @@ import MovieCard from "./MovieCard";
 const myKey = "53bd1a91";
 const myUrl = `http://www.omdbapi.com/?apikey=${myKey}&s=`;
 
+function SampleNextArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <i class="bi bi-chevron-right"></i>
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <i class="bi bi-chevron-left"></i>
+    </div>
+  );
+}
 class CardCarousel extends Component {
   // inizializza l'array come vuoto
   state = {
@@ -19,6 +36,8 @@ class CardCarousel extends Component {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 6,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 992,

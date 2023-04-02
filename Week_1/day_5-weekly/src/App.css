@@ -2,6 +2,10 @@
     background-color: black;
 }
 
+#content {
+    padding-top: 70px;
+}
+
 .App-link {
     color: #61dafb;
 }
@@ -23,6 +27,18 @@
 .carouselTitle {
     color: white;
     font-size: 1.4em;
+}
+
+.slider,
+.slick-list,
+.slick-track {
+    overflow: visible !important;
+    z-index: 5;
+}
+
+.slick-prev,
+.slick-next {
+    z-index: 10;
 }
 
 .truncate {
