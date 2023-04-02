@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import GenreSelector from "./GenreSelector";
-import Sagas from "./MovieCategories/Sagas";
-import Horror from "./MovieCategories/Horror";
+import Sagas from "./Categories/Sagas";
+import Horror from "./Categories/Horror";
 
 class MoviePage extends Component {
   constructor(props) {
