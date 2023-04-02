@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, Form, FormControl, NavDropdown } from "react-bootstrap";
+import Collapse from "react-bootstrap/Collapse";
 
 class NavBar extends Component {
   constructor(props) {
@@ -35,15 +36,17 @@ class NavBar extends Component {
           </Nav>
           <div className="d-flex flex-column flex-md-row align-items-center align-items-center">
             <Form className="form-search d-flex justify-content-end">
-              {this.state.showInput && (
-                <FormControl
-                  id="searchInput"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                  className="me-2"
-                />
-              )}
+              <Collapse in={this.state.showInput} dimension="width">
+                <div>
+                  <FormControl
+                    id="searchInput"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    className="me-2 bg-black border-light text-white"
+                  />
+                </div>
+              </Collapse>
               <button
                 className="btn text-light"
                 type="button"
