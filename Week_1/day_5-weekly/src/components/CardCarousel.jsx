@@ -1,28 +1,62 @@
-import Carousel from "react-bootstrap/Carousel";
 import { Component } from "react";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import MovieCard from "./MovieCard";
 const myKey = "53bd1a91";
 const myUrl = `http://www.omdbapi.com/?apikey=${myKey}&s=`;
 
 class CardCarousel extends Component {
   // inizializza l'array come vuoto
   state = {
-    filmSaga: [],
+    movies: [],
   };
 
-  // Funzione di fetch dall'API basato sull'endpoint
+  sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  };
+
   getMovies = async (Endpoint) => {
     try {
       let response = await fetch(`${myUrl}${Endpoint}`);
       if (response.ok) {
         let data = await response.json();
-        if (data.Search) {
+        let fetchedMovies = data.Search;
+        if (fetchedMovies) {
           this.setState({
-            filmSaga: data.Search,
+            movies: fetchedMovies,
           });
         } else {
           this.setState({
-            filmSaga: [],
+            movies: [],
           });
         }
       } else {
@@ -33,12 +67,10 @@ class CardCarousel extends Component {
     }
   };
 
-  // Chiamato una volta che il component è montato
   async componentDidMount() {
     await this.getMovies(this.props.myEndpoint);
   }
 
-  // Chiamato all'aggiornamento del component
   async componentDidUpdate(prevProps) {
     if (prevProps.myEndpoint !== this.props.myEndpoint) {
       await this.getMovies(this.props.myEndpoint);
@@ -49,47 +81,11 @@ class CardCarousel extends Component {
     return (
       <Container fluid>
         <h2 className="carouselTitle">{this.props.title}</h2>
-        <Carousel
-          nextIcon={
-            <span aria-hidden="true" className="carousel-control-next-icon" />
-          }
-          prevIcon={
-            <span aria-hidden="true" className="carousel-control-prev-icon" />
-          }
-          indicators={false}
-          className="mb-3"
-        >
-          {this.state.filmSaga.map((Search, index) => {
-            if (index % 6 === 0) {
-              return (
-                <Carousel.Item key={index}>
-                  <Row
-                    className="d-flex flex-nowrap overflow-hidden  gx-5"
-                    xs={2}
-                    sm={3}
-                    md={4}
-                    lg={6}
-                  >
-                    {this.state.filmSaga.map((data) => (
-                      <Col
-                        key={data.imdbID}
-                        className="p-0 d-flex justify-content-center"
-                      >
-                        <img
-                          className="d-block w-100 m-2"
-                          src={data.Poster}
-                          alt={`${data.Title} poster`}
-                        />
-                      </Col>
-                    ))}
-                  </Row>
-                </Carousel.Item>
-              );
-            } else {
-              return null;
-            }
-          })}
-        </Carousel>
+        <Slider {...this.sliderSettings}>
+          {this.state.movies.map((movie) => (
+            <MovieCard key={movie.imdbID} theMovie={movie} />
+          ))}
+        </Slider>
       </Container>
     );
   }
