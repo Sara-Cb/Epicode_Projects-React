@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,7 +12,7 @@ function SampleNextArrow(props) {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <i class="bi bi-chevron-right"></i>
+      <i className="bi bi-chevron-right"></i>
     </div>
   );
 }
@@ -20,13 +21,14 @@ function SamplePrevArrow(props) {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <i class="bi bi-chevron-left"></i>
+      <i className="bi bi-chevron-left"></i>
     </div>
   );
 }
 class CardCarousel extends Component {
   // inizializza l'array come vuoto
   state = {
+    loading: true,
     movies: [],
   };
 
@@ -38,6 +40,7 @@ class CardCarousel extends Component {
     slidesToScroll: 6,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 992,
@@ -72,10 +75,12 @@ class CardCarousel extends Component {
         if (fetchedMovies) {
           this.setState({
             movies: fetchedMovies,
+            loading: false,
           });
         } else {
           this.setState({
             movies: [],
+            loading: true,
           });
         }
       } else {
@@ -100,7 +105,12 @@ class CardCarousel extends Component {
     return (
       <Container fluid>
         <h2 className="carouselTitle">{this.props.title}</h2>
-        <Slider {...this.sliderSettings}>
+        {this.state.loading === true && (
+          <Spinner animation="border" role="status" variant="danger">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        )}
+        <Slider {...this.sliderSettings} className="mb-3">
           {this.state.movies.map((movie) => (
             <MovieCard key={movie.imdbID} theMovie={movie} />
           ))}

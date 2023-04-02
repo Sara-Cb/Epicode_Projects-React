@@ -1,11 +1,13 @@
 .card {
     z-index: 1;
+    height: inherit;
 }
 
 .card,
 .card img {
     border-radius: 0;
 }
+
 
 .card:hover {
     transform: scaleX(1.4) scaleY(1.4);

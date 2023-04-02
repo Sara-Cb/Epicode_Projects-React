@@ -36,9 +36,17 @@
     z-index: 5;
 }
 
+.slick-list,
+.slick-track {
+    height: 300px;
+}
+
 .slick-prev,
 .slick-next {
     z-index: 10;
+    height: 100%;
+    padding: 20px;
+    background-color: #61dafb;
 }
 
 .truncate {
