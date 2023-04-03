@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-import { Card } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Card } from "react-bootstrap";
+import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: false,
-    };
-  }
+  state = {
+    selected: false,
+  };
 
   render() {
     const { book } = this.props;
@@ -15,7 +13,9 @@ class SingleBook extends Component {
 
     return (
       <Card
-        className={`bgCard h-100 d-flex flex-column ${selected ? 'border border-danger' : ''}`}
+        className={`bgCard h-100 d-flex flex-column ${
+          selected ? "border border-danger" : ""
+        }`}
         onClick={() => this.setState({ selected: !selected })}
       >
         <Card.Img
@@ -27,6 +27,7 @@ class SingleBook extends Component {
         />
         <Card.Body className="d-flex flex-column p-1 pt-3">
           <Card.Title className="fs-6">{book.title}</Card.Title>
+          {selected && <CommentArea bookAsin={book.asin} />}
         </Card.Body>
       </Card>
     );
