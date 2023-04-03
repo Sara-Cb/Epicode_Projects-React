@@ -95,12 +95,6 @@ class CardCarousel extends Component {
     await this.getMovies(this.props.myEndpoint);
   }
 
-  async componentDidUpdate(prevProps) {
-    if (prevProps.myEndpoint !== this.props.myEndpoint) {
-      await this.getMovies(this.props.myEndpoint);
-    }
-  }
-
   render() {
     return (
       <Container fluid>
