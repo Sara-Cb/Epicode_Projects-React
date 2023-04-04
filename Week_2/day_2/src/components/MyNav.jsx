@@ -6,7 +6,7 @@ function MyNav() {
   return (
     <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top">
       <Container fluid>
-        <Navbar.Brand href="#home">BOOKSTORE</Navbar.Brand>
+        <Navbar.Brand href="#home">Borrow Books</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
@@ -14,7 +14,6 @@ function MyNav() {
             <Nav.Link href="#">About</Nav.Link>
             <Nav.Link href="#">Browse</Nav.Link>
           </Nav>
-
         </Navbar.Collapse>
       </Container>
     </Navbar>

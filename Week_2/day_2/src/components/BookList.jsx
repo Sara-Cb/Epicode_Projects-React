@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Row, Col, FormControl, Form } from "react-bootstrap";
 import SingleBook from "./SingleBook";
 
@@ -52,7 +52,7 @@ const BookList = () => {
 
   return (
     <Container className="mt-3">
-        <h3 className="font-weight-light">Select book Category</h3>
+      <h3 className="font-weight-light">Select book Category</h3>
       <Form>
         <Form.Select
           className="mr-2"
@@ -77,7 +77,7 @@ const BookList = () => {
         />
       </Form>
 
-        <br />
+      <br />
 
       <Row className="justify-content-evenly align-items-stretch mt-3">
         {filteredBooks.map((book) => {
