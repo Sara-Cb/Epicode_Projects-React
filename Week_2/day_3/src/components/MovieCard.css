@@ -1,0 +1,55 @@
+.card {
+    z-index: 1;
+    height: inherit;
+}
+
+.card,
+.card img {
+    border-radius: 0;
+}
+
+
+.card:hover {
+    transform: scaleX(1.4) scaleY(1.4);
+    z-index: 10;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.card:hover>.card-body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.card-body {
+    display: none;
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    top: 110px;
+    width: 100%;
+    border: 1px solid rgba(white, 0.3);
+    border-top: 0;
+}
+
+.card .details p {
+    font-size: 0.7em;
+}
+
+.yourMatch {
+    color: rgb(0, 172, 0);
+}
+
+.adjectives {
+    text-align: center;
+}
+
+.adjectives span {
+    font-size: 0.7em;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 2em;
+}

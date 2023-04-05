@@ -1,0 +1,57 @@
+.App {
+    background-color: black;
+    overflow: hidden;
+}
+
+#content {
+    padding-top: 70px;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+    background: black !important;
+}
+
+.dropdown-item {
+    color: white !important;
+}
+
+.dropdown-item:hover {
+    color: black !important;
+}
+
+.carouselTitle {
+    color: white;
+    font-size: 1.4em;
+}
+
+.slider,
+.slick-list,
+.slick-track {
+    overflow: visible !important;
+    z-index: 5;
+}
+
+.slick-list,
+.slick-track {
+    height: 300px;
+}
+
+.slick-prev,
+.slick-next {
+    z-index: 10;
+    height: 100%;
+    padding: 20px;
+    background-color: #61dafb;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
