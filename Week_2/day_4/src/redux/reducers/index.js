@@ -21,7 +21,7 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         favourite: {
           content: [
-            state.favourite.content.filter((i) => i !== action.payload),
+            ...state.favourite.content.filter((i) => i !== action.payload),
           ],
         },
       };
