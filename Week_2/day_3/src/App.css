@@ -28,18 +28,14 @@
 .carouselTitle {
     color: white;
     font-size: 1.4em;
+    margin-bottom: 15px;
+    width: 100% !important;
 }
 
-.slider,
 .slick-list,
 .slick-track {
     overflow: visible !important;
     z-index: 5;
-}
-
-.slick-list,
-.slick-track {
-    height: 300px;
 }
 
 .slick-prev,
@@ -47,7 +43,6 @@
     z-index: 10;
     height: 100%;
     padding: 20px;
-    background-color: #61dafb;
 }
 
 .truncate {

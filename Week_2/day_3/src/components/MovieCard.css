@@ -1,15 +1,27 @@
 .card {
     z-index: 1;
-    height: inherit;
+    width: auto;
+    aspect-ratio: 4/3;
+    overflow: hidden;
 }
 
 .card,
-.card img {
+.cardImg {
     border-radius: 0;
+}
+
+.cardImg {
+    width: 100%;
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 
 .card:hover {
+    aspect-ratio: 1/1;
     transform: scaleX(1.4) scaleY(1.4);
     z-index: 10;
     transition: 0.5s ease;

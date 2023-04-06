@@ -7,7 +7,9 @@ class MovieCard extends React.Component {
     const movie = this.props.theMovie;
     return (
       <Card className="mx-1 border-0">
-        <Card.Img src={movie.Poster} alt={`${movie.Title} poster`} />
+        <div className="cardImg">
+          <Card.Img src={movie.Poster} alt={`${movie.Title} poster`} />
+        </div>
         <Card.Body>
           <section className="d-flex justify-content-between">
             <div>

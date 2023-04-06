@@ -104,7 +104,7 @@ class CardCarousel extends Component {
             <span className="visually-hidden">Loading...</span>
           </Spinner>
         )}
-        <Slider {...this.sliderSettings} className="mb-3">
+        <Slider {...this.sliderSettings} className="mb-5">
           {this.state.movies.map((movie) => (
             <MovieCard key={movie.imdbID} theMovie={movie} />
           ))}
