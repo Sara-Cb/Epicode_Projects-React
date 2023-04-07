@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import { Container, Row, Col } from "react-bootstrap";
 
-function HomeCard() {
+function HeroCard() {
   return (
     <Container>
       <Row>
@@ -18,4 +18,4 @@ function HomeCard() {
   );
 }
 
-export default HomeCard;
+export default HeroCard;
