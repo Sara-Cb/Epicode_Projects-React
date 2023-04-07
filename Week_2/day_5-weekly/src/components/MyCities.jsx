@@ -37,17 +37,14 @@ const MyCities = () => {
 
   return (
     <div>
-      <h2>Your Favourite Cities :D</h2>
+      <h2>Your Cities</h2>
       <div className="d-flex flex-wrap justify-content-around">
         {weatherData.map((data, i) => {
           return (
-            <Card
-              key={data.name + i}
-              style={{ width: "18rem", marginBottom: "1rem" }}
-            >
+            <Card key={i}>
               <Card.Body>
                 <Card.Title>
-                  <Link to={`/${data.name}`}>{data.name}</Link>
+                  <Link to={`/city/${data.name}`}>{data.name}</Link>
                   <span className="ms-3">
                     {data.main && data.main.temp
                       ? Math.round(tempConverter(data.main.temp)) + "°C"

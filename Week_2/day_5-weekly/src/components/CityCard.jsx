@@ -13,16 +13,13 @@ function CityCards({ city }) {
   return (
     <Container>
       <Row>
-        <Col>
-          <div className="mx-auto m-3 ">
+        <Col className="col-8 mt-3 mb-5 mx-auto bg-light p-4 border border-dark">
+          <div>
             <h1>
               <b>{city.name}</b>
             </h1>
             <h2>{convertDegrees(city.main.temp)}°C</h2>
-            <h4>
-              {city.weather[0].main}
-              {console.log(city)}
-            </h4>
+            <h4>{city.weather[0].main}</h4>
           </div>
         </Col>
       </Row>

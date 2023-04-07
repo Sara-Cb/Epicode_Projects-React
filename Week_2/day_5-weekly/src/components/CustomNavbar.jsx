@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 
 function CustomNavbar() {
   return (
-    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar bg="dark" variant="dark" expand="md" className="mb-3">
       <Container fluid>
         <Navbar.Brand href="/" className="text-white d-flex align-items-center">
           <img

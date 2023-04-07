@@ -28,8 +28,6 @@ function ForecastToday({ forecast }) {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 6,
-    nextArrow: <ChevronRight />,
-    prevArrow: <ChevronLeft />,
     adaptiveHeight: true,
     responsive: [
       {
@@ -61,8 +59,8 @@ function ForecastToday({ forecast }) {
       <Col>
         <Slider {...sliderSettings} className="mb-3">
           {forecast.map((item, index) => (
-            <div key={index}>
-              <div className="mx-auto">
+            <div key={index} className="px-2">
+              <div className="mx-auto bg-light p-4 border border-dark">
                 <h3>{formatDayTime(new Date(item.dt * 1000))}</h3>
                 <p>{Math.round(convertDegrees(item.main.temp))}°C</p>
                 <p>
