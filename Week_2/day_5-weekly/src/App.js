@@ -11,10 +11,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <CustomNavbar />
+        <header>
+          <CustomNavbar />
+        </header>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/city/:id" element={<CityPage />} />
+          <Route path="/city/:name" element={<CityPage />} />
           <Route path="/your-cities" element={<MyCities />} />
         </Routes>
       </div>
