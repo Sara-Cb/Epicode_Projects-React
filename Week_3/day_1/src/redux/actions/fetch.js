@@ -5,7 +5,7 @@ const setJobs = (data) => {
   };
 };
 
-const emptyJobs = () => {
+export const emptyJobs = () => {
   return {
     type: "REFRESH",
   };
@@ -17,6 +17,7 @@ const companyEndpoint =
 
 export const fetchJobs = (query) => {
   return async (dispatch, getState) => {
+    dispatch(emptyJobs());
     try {
       const response = await fetch(baseEndpoint + query + "&limit=20");
       if (response.ok) {

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Job from "./Job";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchJobs } from "../redux/actions/fetch";
+import { emptyJobs, fetchJobs } from "../redux/actions/fetch";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -20,6 +20,11 @@ const MainSearch = () => {
     e.preventDefault();
     dispatch(fetchJobs(query));
   };
+
+  useEffect(() => {
+    dispatch(emptyJobs());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container>
