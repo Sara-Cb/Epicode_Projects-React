@@ -1,13 +1,4 @@
-import {
-  Container,
-  Row,
-  Col,
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 function Home() {
   return <Container></Container>;

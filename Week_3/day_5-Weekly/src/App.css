@@ -1,4 +1,13 @@
-body {
+html,
+body,
+#root,
+.mainContainer {
+  height: 100%;
+  width: 100%;
+  max-height: 100vh;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
   background: rgb(46, 63, 87);
   background: linear-gradient(90deg,
       rgb(63, 86, 119) 0%,
@@ -7,6 +16,12 @@ body {
 }
 
 /*SIDEBAR SECTION*/
+.sideCont {
+  width: 230px !important;
+  height: 100%;
+  margin-right: 20px !important;
+}
+
 .navbar.fixed-left {
   position: fixed;
   top: 0;
@@ -20,12 +35,15 @@ body {
   z-index: 1200;
 }
 
-.navbar.fixed-left .navbar-collapse .navbar-nav a {
+.navbar.fixed-left .navbar-collapse .navbar-nav a,
+.nav-item a,
+.myLink {
   color: rgb(145, 145, 145) !important;
   transition: 0.3s;
 }
 
-.navbar.fixed-left .navbar-collapse .navbar-nav a:hover {
+.navbar.fixed-left .navbar-collapse .navbar-nav a:hover,
+.nav-item a:hover {
   color: white !important;
 }
 
@@ -78,21 +96,38 @@ ul {
   background-color: white;
 }
 
-@media screen and (max-width: 936px) {
-  #sidebar {
-    display: none;
-  }
+.navbar.fixed-left {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.navbar-container {
+  height: 40%;
+}
+
 
 /* BOTTOM PLAYER SECTION*/
 
 .bg-container {
   height: 5.5rem;
   background-color: #282828;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-left: 230px !important;
 }
 
-.playerControls .row {
-  justify-content: space-between;
+@media screen and (max-width: 936px) {
+  .sideCont {
+    display: none;
+  }
+
+  .bg-container {
+    padding-left: 0 !important;
+  }
 }
 
 .playerControls a img {
@@ -106,15 +141,15 @@ ul {
   color: #282828 !important;
 }
 
-.progress {
-  color: white;
-  background-color: #414141;
-  height: 3px;
-}
-
 .playBar p {
   margin-bottom: 20px;
   color: white;
+}
+
+.progress {
+  color: white;
+  background-color: #414141;
+  height: 3px !important;
 }
 
 /*MAIN PAGE SECTION*/
