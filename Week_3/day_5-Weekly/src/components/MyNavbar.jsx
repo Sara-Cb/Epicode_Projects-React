@@ -6,14 +6,14 @@ function MyNavbar() {
   const isMobile = useMediaQuery({ query: "(max-width: 935px)" });
 
   return (
-    <Row xs={2} sm={1}>
+    <Row xs={2} md={1}>
       <Col>
-        <Navbar expand="sm">
+        <Navbar expand="md">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <Nav.Item>
-                <Nav.Link href="/">TRENDING</Nav.Link>
+                <Nav.Link href="/">HOME</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="#">PODCAST</Nav.Link>

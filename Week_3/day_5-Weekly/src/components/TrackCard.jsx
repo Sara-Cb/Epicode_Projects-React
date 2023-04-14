@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Col, Image, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Button, Col, Image, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToFavourite,
+  removeFromFavourite,
+} from "../redux/actions/favourites";
 
 const TrackCard = ({ track }) => {
   const dispatch = useDispatch();
+  const [isFavourite, setIsFavourite] = useState(false);
+  const [favcolor, setFavcolor] = useState("light");
+
+  const favourites = useSelector((state) => state.favourite.favourite.list);
+
+  const toggleFavourite = () => {
+    if (isFavourite) {
+      dispatch(removeFromFavourite(track));
+      setIsFavourite(false);
+      setFavcolor("light");
+    } else {
+      dispatch(addToFavourite(track));
+      setIsFavourite(true);
+      setFavcolor("success");
+    }
+  };
+
+  useEffect(() => {
+    setIsFavourite(favourites.some((fav) => fav.id === track.id));
+  }, [favourites, track]);
 
   return (
     <Col xs={12} md={6} className="mb-4 rounded bg-dark p-2">
@@ -33,6 +57,13 @@ const TrackCard = ({ track }) => {
               </Link>
             </div>
           </div>
+        </Col>
+      </Row>
+      <Row className="justify-content-end">
+        <Col xs={3}>
+          <Button variant={favcolor} onClick={toggleFavourite}>
+            {isFavourite ? "Remove from favourites" : "Add to favourites"}
+          </Button>
         </Col>
       </Row>
     </Col>
