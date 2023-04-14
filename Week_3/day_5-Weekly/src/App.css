@@ -22,6 +22,15 @@ body,
   margin-right: 20px !important;
 }
 
+.myElements {
+  height: 100%;
+  margin-bottom: 5.5rem !important;
+}
+
+.mainPage {
+  height: 100%;
+}
+
 .navbar.fixed-left {
   position: fixed;
   top: 0;
@@ -173,15 +182,24 @@ ul {
 }
 
 .imgLinks a p,
-.mainPage p a {
-  padding-top: 8px;
+.albumCard a.artistLink {
+  padding-top: 5px;
   font-size: 12px;
   color: white;
-  font-weight: 700;
+  text-decoration: none;
 }
 
-.mainPage p a:hover {
-  color: rgb(138, 138, 138);
+
+.albumCard a.albumLink {
+  padding-top: 8px;
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.albumCard a:hover {
+  color: rgb(138, 138, 138) !important;
 }
 
 .imgLinks a:hover {
@@ -192,14 +210,11 @@ ul {
   filter: brightness(50%);
 }
 
-#rock,
-#pop,
-#hiphop,
-#searchResults,
-#artist-tracks {
+h2.sectionTitle {
   color: white;
   font-weight: 700;
-  padding-top: 50px;
+  padding-top: 20px;
+  margin-bottom: 20px;
 }
 
 .trackHover:hover {

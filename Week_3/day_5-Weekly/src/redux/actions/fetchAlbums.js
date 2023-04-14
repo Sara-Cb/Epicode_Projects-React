@@ -34,21 +34,21 @@ export const fetchAlbums = () => async (dispatch) => {
     let popRandomArtists = [];
     let hipHopRandomArtists = [];
 
-    while (rockRandomArtists.length < 3) {
+    while (rockRandomArtists.length < 4) {
       let artist = rockArtists[Math.floor(Math.random() * rockArtists.length)];
       if (!rockRandomArtists.includes(artist)) {
         rockRandomArtists.push(artist);
       }
     }
 
-    while (popRandomArtists.length < 3) {
+    while (popRandomArtists.length < 4) {
       let artist = popArtists[Math.floor(Math.random() * popArtists.length)];
       if (!popRandomArtists.includes(artist)) {
         popRandomArtists.push(artist);
       }
     }
 
-    while (hipHopRandomArtists.length < 3) {
+    while (hipHopRandomArtists.length < 4) {
       let artist =
         hipHopArtists[Math.floor(Math.random() * hipHopArtists.length)];
       if (!hipHopRandomArtists.includes(artist)) {

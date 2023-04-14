@@ -1,21 +1,58 @@
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import AlbumCard from "./AlbumCard";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchAlbums } from "../redux/actions/fetchAlbums";
+import { useEffect } from "react";
 
 function Home() {
+  const fetchedAlbums = useSelector((state) => state.fetchAlbums.fetchedAlbums);
+  const loading = useSelector((state) => state.fetchAlbums.loading);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAlbums());
+    console.log(fetchedAlbums);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Container>
-      <Row>
-        <h2>Rock</h2>
-        {/* mi servono 4 album rock qui*/}
-      </Row>
-      <Row>
-        <h2>Pop</h2>
-        {/* mi servono 4 album pop qui*/}
-      </Row>
-      <Row>
-        <h2>Hip-hop</h2>
-        {/* mi servono 4 album hip-hop qui*/}
-      </Row>
+    <Container fluid className="mainPage">
+      {loading ? (
+        <div
+          className="w-100 d-flex align-items-center justify-content-center"
+          style={{ minHeight: "300px" }}
+        >
+          <Spinner
+            animation="border"
+            role="status"
+            variant="success"
+            style={{ width: "100px", height: "100px" }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <Container>
+          <Row>
+            <h2 className="sectionTitle">Pop albums</h2>
+            {fetchedAlbums.popAlbums.map((album) => (
+              <AlbumCard key={album.id} album={album} />
+            ))}
+          </Row>
+          <Row>
+            <h2 className="sectionTitle">Rock albums</h2>
+            {fetchedAlbums.rockAlbums.map((album) => (
+              <AlbumCard key={album.id} album={album} />
+            ))}
+          </Row>
+          <Row>
+            <h2 className="sectionTitle">Hip hop albums</h2>
+            {fetchedAlbums.hiphopAlbums.map((album) => (
+              <AlbumCard key={album.id} album={album} />
+            ))}
+          </Row>
+        </Container>
+      )}
     </Container>
   );
 }

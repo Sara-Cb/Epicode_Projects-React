@@ -8,6 +8,7 @@ import { Container } from "react-bootstrap";
 import MySidebar from "./components/MySidebar";
 import MyNavbar from "./components/MyNavbar";
 import Player from "./components/Player";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   return (
@@ -20,11 +21,12 @@ function App() {
           <MyNavbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
+            <Route path="/search-results" element={<SearchResults />}></Route>
             <Route path="/artist/:id" element={<Artist />}></Route>
             <Route path="/album/:id" element={<Album />}></Route>
           </Routes>
-          <Player />
         </Container>
+        <Player />
       </Container>
     </BrowserRouter>
   );

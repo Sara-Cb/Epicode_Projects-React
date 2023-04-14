@@ -3,7 +3,6 @@ const initialState = {
     popAlbums: [],
     rockAlbums: [],
     hiphopAlbums: [],
-    allAlbums: [],
   },
   loading: true,
 };

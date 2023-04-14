@@ -3,6 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { FaHome, FaBookOpen } from "react-icons/fa";
 import logo from "../imgs/logo/Spotify_Logo.png";
 import { Link } from "react-router-dom";
+import MySearchBar from "./MySearchBar";
 
 const MySidebar = () => {
   return (
@@ -30,6 +31,7 @@ const MySidebar = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        <MySearchBar />
       </div>
       <div className="nav-btn">
         <button className="signup-btn">Sign Up</button>
