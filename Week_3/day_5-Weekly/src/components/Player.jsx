@@ -6,10 +6,21 @@ import previous from "../imgs/playerbuttons/Previous.png";
 import play from "../imgs/playerbuttons/Play.png";
 import next from "../imgs/playerbuttons/Next.png";
 import repeat from "../imgs/playerbuttons/Repeat.png";
+import { useSelector } from "react-redux";
 
 function Player() {
+  const currentTrack = useSelector((state) => state.onPlay.currentTrack);
   return (
     <Container fluid className="bg-container myPlayer">
+      {currentTrack.title && (
+        <Row className="justify-content-center text-light text-center">
+          <p className="mb-0">
+            <span>{currentTrack.title}</span> -{" "}
+            <span>{currentTrack.album.title}</span>
+          </p>
+          <small className="mb-0">{currentTrack.artist.name}</small>
+        </Row>
+      )}
       <Row className="justify-content-center">
         <Col
           xs={4}

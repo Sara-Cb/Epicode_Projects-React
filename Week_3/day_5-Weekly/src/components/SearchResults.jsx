@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
+import TrackCard from "./TrackCard";
 
 const SearchResults = () => {
   const tracks = useSelector((state) => state.search.tracks);
@@ -20,15 +21,7 @@ const SearchResults = () => {
           <h2 className="sectionTitle">Tracks</h2>
           <Row>
             {tracks.map((track) => (
-              <Col key={track.id} md={4} className="mb-4">
-                <Card>
-                  <Card.Img variant="top" src={track.album.cover_medium} />
-                  <Card.Body>
-                    <Card.Title>{track.title}</Card.Title>
-                    <Card.Text>{track.artist.name}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
+              <TrackCard key={track.id} track={track} />
             ))}
           </Row>
         </>
