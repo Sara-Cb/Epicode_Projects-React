@@ -1,6 +1,7 @@
 import { Row, Col, Nav, Navbar } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import MySearchBar from "./MySearchBar";
+import { Link } from "react-router-dom";
 
 function MyNavbar() {
   const isMobile = useMediaQuery({ query: "(max-width: 935px)" });
@@ -13,19 +14,21 @@ function MyNavbar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <Nav.Item>
-                <Nav.Link href="/">HOME</Nav.Link>
+                <Link className="nav-link" to="/">
+                  HOME
+                </Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#">PODCAST</Nav.Link>
+                <Link className="nav-link">PODCAST</Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#">MOODS AND GENRES</Nav.Link>
+                <Link className="nav-link">MOODS AND GENRES</Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#">NEW RELEASES</Nav.Link>
+                <Link className="nav-link">NEW RELEASES</Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#">DISCOVER</Nav.Link>
+                <Link className="nav-link">DISCOVER</Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>

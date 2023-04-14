@@ -25,7 +25,6 @@ function Album() {
         );
         const data = await response.json();
         setAlbum(data);
-        console.log(album);
       } catch (error) {
         // ex.: Url is not correct, Internal Server Error
         console.log(error);
@@ -41,7 +40,7 @@ function Album() {
       {album.title && (
         <div className="mb-4">
           <Image src={album.cover_medium} fluid />
-          <h1>{album.title}</h1>
+          <h1 className="sectionTitle">{album.title}</h1>
           <h2>
             <Link to={`/artist/${album.artist.id}`}>{album.artist.name}</Link>
           </h2>
@@ -50,7 +49,7 @@ function Album() {
       {album.tracks &&
         album.tracks.data.map((track) => (
           <TrackCard
-            key={track.title}
+            key={track.id}
             track={track}
             onClick={() => {
               // dispatch della track

@@ -23,12 +23,12 @@ const MySidebar = () => {
         <Navbar.Toggle aria-controls="navbarNavAltMarkup" />
         <Navbar.Collapse id="navbarNavAltMarkup">
           <Nav className="flex-column">
-            <Nav.Link href="index.html">
+            <Link to="/">
               <FaHome size={20} className="me-2" /> Home
-            </Nav.Link>
-            <Nav.Link href="#">
+            </Link>
+            <Link to="/your-library">
               <FaBookOpen size={20} className="me-2" /> Your Library
-            </Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
         <MySearchBar />

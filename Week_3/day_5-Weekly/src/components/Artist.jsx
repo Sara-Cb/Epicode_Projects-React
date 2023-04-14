@@ -62,7 +62,7 @@ function Artist() {
       {artist.name && (
         <div className="mb-4">
           <Image src={artist.picture_medium} fluid />
-          <h1>{artist.name}</h1>
+          <h1 className="sectionTitle">{artist.name}</h1>
         </div>
       )}
       {tracks &&

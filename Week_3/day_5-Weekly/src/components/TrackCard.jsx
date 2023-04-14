@@ -10,7 +10,6 @@ import {
 const TrackCard = ({ track }) => {
   const dispatch = useDispatch();
   const [isFavourite, setIsFavourite] = useState(false);
-  const [favcolor, setFavcolor] = useState("light");
 
   const favourites = useSelector((state) => state.favourite.favourite.list);
 
@@ -18,11 +17,9 @@ const TrackCard = ({ track }) => {
     if (isFavourite) {
       dispatch(removeFromFavourite(track));
       setIsFavourite(false);
-      setFavcolor("light");
     } else {
       dispatch(addToFavourite(track));
       setIsFavourite(true);
-      setFavcolor("success");
     }
   };
 
@@ -61,7 +58,10 @@ const TrackCard = ({ track }) => {
       </Row>
       <Row className="justify-content-end">
         <Col xs={3}>
-          <Button variant={favcolor} onClick={toggleFavourite}>
+          <Button
+            variant={isFavourite ? "success" : "light"}
+            onClick={toggleFavourite}
+          >
             {isFavourite ? "Remove from favourites" : "Add to favourites"}
           </Button>
         </Col>

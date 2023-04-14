@@ -9,6 +9,7 @@ import MySidebar from "./components/MySidebar";
 import MyNavbar from "./components/MyNavbar";
 import Player from "./components/Player";
 import SearchResults from "./components/SearchResults";
+import YourLibrary from "./components/YourLibrary";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/search-results" element={<SearchResults />}></Route>
             <Route path="/artist/:id" element={<Artist />}></Route>
             <Route path="/album/:id" element={<Album />}></Route>
+            <Route path="/your-library" element={<YourLibrary />}></Route>
           </Routes>
         </Container>
         <Player />
